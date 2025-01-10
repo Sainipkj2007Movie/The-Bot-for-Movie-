@@ -65,7 +65,9 @@ def get_shortlink_sync(url):
         rget = requests.get(f"https://anylinks.in/api?api=4a2c6464cc6eb5af004da0730001c49ae4e226be&url={url}")
         rjson = rget.json()
         if rjson["status"] == "success" or rget.status_code == 200:
+            print(rjson)
             return rjson["shortenedUrl"]
+            
         else:
             return url
     except Exception as e:
